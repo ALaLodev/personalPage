@@ -1,0 +1,255 @@
+/* ===== BASE ===== */
+* {
+    cursor: crosshair;
+}
+
+a, button, input, textarea {
+    cursor: crosshair;
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background: #080808;
+    color: #E0E0E0;
+    font-weight: 300;
+}
+
+.font-display {
+    font-family: 'Syne', sans-serif;
+}
+
+/* ===== BACKGROUNDS ===== */
+.grid-bg {
+    background-image:
+        linear-gradient(to right, #1a1a1a 1px, transparent 1px),
+        linear-gradient(to bottom, #1a1a1a 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.scan-line {
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.015) 2px,
+        rgba(255, 255, 255, 0.015) 4px
+    );
+    pointer-events: none;
+}
+
+.stripe-bar {
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 4px,
+        #333 4px,
+        #333 8px
+    );
+    height: 1px;
+}
+
+/* ===== SELECTION & SCROLLBAR ===== */
+::selection {
+    background: #CCFF00;
+    color: #000;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #CCFF00;
+}
+
+/* ===== HEADER ===== */
+#mainHeader {
+    background: transparent;
+}
+
+#mainHeader.scrolled {
+    background: rgba(8, 8, 8, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+}
+
+/* ===== NAV LINKS ===== */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #CCFF00;
+    transition: width 300ms ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ===== PROJECT CARDS ===== */
+.project-card:hover .project-img {
+    filter: grayscale(0);
+    transform: scale(1);
+}
+
+.project-card .project-img {
+    filter: grayscale(100%);
+    transform: scale(1.05);
+    transition: all 700ms ease-out;
+}
+
+.project-card:hover .project-arrow {
+    transform: translateX(0.5rem);
+}
+
+.project-arrow {
+    transition: transform 300ms ease;
+}
+
+/* ===== SKILL BARS ===== */
+.skill-bar-fill {
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== FADE IN ANIMATIONS ===== */
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.animate {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fade-in.animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== TOAST ===== */
+.toast {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 400ms ease;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ===== CERTIFICATION CARDS ===== */
+.cert-card {
+    transition: all 300ms ease;
+}
+
+.cert-card:hover {
+    background: #131313;
+    border-left: 2px solid #CCFF00;
+}
+
+/* ===== HERO GLOW EFFECT ===== */
+.hero-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(204, 255, 0, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* ===== SECTION DIVIDER ===== */
+.section-divider {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: #CCFF00;
+    opacity: 0.5;
+}
+
+/* ===== HOVER GLOW ON CARDS ===== */
+.hover-glow:hover {
+    box-shadow: 0 0 30px rgba(204, 255, 0, 0.03);
+}
+
+/* ===== STAGGER CHILDREN ===== */
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.4s; }
+
+/* ===== SMOOTH IMAGE REVEAL ===== */
+.reveal-img {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.reveal-img.visible {
+    clip-path: inset(0 0 0 0);
+}
+
+/* ===== FORM INPUT ANIMATION ===== */
+.form-input {
+    position: relative;
+}
+
+.form-input::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #CCFF00;
+    transition: width 400ms ease;
+}
+
+.form-input:focus-within::after {
+    width: 100%;
+}
+
+/* ===== MOBILE MENU ANIMATION ===== */
+#mobileMenu {
+    transition: opacity 300ms ease;
+}
+
+#mobileMenu.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#mobileMenu:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+}

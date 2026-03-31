@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonio Lafuente — Software Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                        display: ['Syne', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="antialiased">
+
+    <!-- HEADER -->
+    <header id="mainHeader" class="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center transition-all duration-300">
+        <a href="#hero" class="font-display font-bold text-lg tracking-tight text-white">AL<span class="text-[#CCFF00]">.</span></a>
+        <nav class="hidden md:flex items-center gap-8 text-xs tracking-widest uppercase text-[#AAAAAA]">
+            <a href="#about" class="nav-link hover:text-[#CCFF00] transition-colors duration-300" data-i18n="navAbout">Sobre mí</a>
+            <a href="#skills" class="nav-link hover:text-[#CCFF00] transition-colors duration-300" data-i18n="navSkills">Skills</a>
+            <a href="#projects" class="nav-link hover:text-[#CCFF00] transition-colors duration-300" data-i18n="navProjects">Proyectos</a>
+            <a href="#experience" class="nav-link hover:text-[#CCFF00] transition-colors duration-300" data-i18n="navExperience">Experiencia</a>
+            <a href="#education" class="nav-link hover:text-[#CCFF00] transition-colors duration-300" data-i18n="navEducation">Formación</a>
+            <a href="#contact" class="nav-link hover:text-[#CCFF00] transition-colors duration-300" data-i18n="navContact">Contacto</a>
+            <button id="langToggle" class="border border-[#444444] px-3 py-1 text-[#CCFF00] hover:border-[#CCFF00] transition-colors duration-300">EN</button>
+        </nav>
+        <button id="menuBtn" class="md:hidden text-white">
+            <iconify-icon icon="lucide:menu" width="24"></iconify-icon>
+        </button>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="fixed inset-0 z-40 bg-[#080808] flex flex-col items-center justify-center gap-8 text-sm tracking-widest uppercase hidden">
+        <button id="closeMenu" class="absolute top-6 right-6 text-white">
+            <iconify-icon icon="lucide:x" width="24"></iconify-icon>
+        </button>
+        <a href="#about" class="mobile-link hover:text-[#CCFF00] transition-colors" data-i18n="navAbout">Sobre mí</a>
+        <a href="#skills" class="mobile-link hover:text-[#CCFF00] transition-colors" data-i18n="navSkills">Skills</a>
+        <a href="#projects" class="mobile-link hover:text-[#CCFF00] transition-colors" data-i18n="navProjects">Proyectos</a>
+        <a href="#experience" class="mobile-link hover:text-[#CCFF00] transition-colors" data-i18n="navExperience">Experiencia</a>
+        <a href="#education" class="mobile-link hover:text-[#CCFF00] transition-colors" data-i18n="navEducation">Formación</a>
+        <a href="#contact" class="mobile-link hover:text-[#CCFF00] transition-colors" data-i18n="navContact">Contacto</a>
+        <button id="langToggleMobile" class="border border-[#444444] px-3 py-1 text-[#CCFF00] hover:border-[#CCFF00] transition-colors duration-300">EN</button>
+    </div>
+
+    <!-- HERO -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, #0d0d0d 0%, #111118 50%, #0a0f0a 100%);"></div>
+        <div class="absolute inset-0 scan-line"></div>
+        <div class="absolute inset-0 grid-bg opacity-20"></div>
+        <div class="hero-glow top-1/4 left-1/2 -translate-x-1/2"></div>
+
+        <div class="relative z-10 w-full max-w-4xl mx-auto px-6 md:px-12 text-center">
+            <p class="text-[10px] tracking-[0.3em] uppercase text-[#666666] mb-6" data-i18n="heroSubtitle">Software Developer</p>
+            <h1 class="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] tracking-tight uppercase">
+                <span class="text-[#E0E0E0]">Anton</span><span class="text-[#CCFF00]">io</span><br>
+                <span class="text-[#E0E0E0]">La</span><span class="text-[#CCFF00]">fuente</span><span class="text-[#CCFF00]">.</span>
+            </h1>
+
+            <div class="flex items-center justify-center gap-5 mt-10">
+                <a href="https://github.com/ALaLodev" target="_blank" class="text-[#999999] hover:text-[#CCFF00] transition-colors duration-300">
+                    <iconify-icon icon="lucide:github" width="22"></iconify-icon>
+                </a>
+                <a href="https://www.linkedin.com/in/antonio-lafuente/" target="_blank" class="text-[#999999] hover:text-[#CCFF00] transition-colors duration-300">
+                    <iconify-icon icon="lucide:linkedin" width="22"></iconify-icon>
+                </a>
+                <span class="text-[#333333]">|</span>
+                <span class="inline-block w-1.5 h-1.5 bg-[#CCFF00] rounded-full animate-pulse"></span>
+                <span class="text-[10px] tracking-widest uppercase text-[#999999]" data-i18n="heroAvailable">Disponible para proyectos</span>
+            </div>
+
+            <p class="mt-10 text-sm text-[#888888] leading-relaxed max-w-xl mx-auto">
+                <span data-i18n="heroDesc1">Especializado en Kotlin, Flutter y Java Spring Boot.</span><br>
+                <span data-i18n="heroDesc2">Creo aplicaciones escalables con Clean Architecture, MVVM y TDD.</span>
+            </p>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+            <span class="text-[10px] tracking-widest uppercase text-[#555555]" data-i18n="scroll">Scroll</span>
+            <iconify-icon icon="lucide:arrow-down" class="text-[#555555] animate-bounce" width="14"></iconify-icon>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="relative py-24 md:py-32">
+        <div class="max-w-4xl mx-auto px-6 md:px-12">
+            <div class="fade-in">
+                <p class="text-xs tracking-widest uppercase text-[#999999] mb-8 flex items-center gap-3">
+                    <iconify-icon icon="lucide:hash" width="14"></iconify-icon>
+                    <span data-i18n="aboutLabel">Sobre mí</span>
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tighter uppercase mb-6">
+                            <span data-i18n="aboutTitle">Software que escala.</span>
+                        </h2>
+                        <p class="text-sm text-[#BBBBBB] leading-relaxed mb-4" data-i18n="aboutP1">
+                            Desarrollador de software orientado a resultados, especializado en Kotlin (Jetpack Compose), Flutter y Java (Spring Boot). Busco crear aplicaciones escalables y de alta calidad mediante Clean Architecture, MVVM y TDD.
+                        </p>
+                        <p class="text-sm text-[#BBBBBB] leading-relaxed" data-i18n="aboutP2">
+                            Aporto madurez profesional y un firme compromiso con el rigor técnico forjado en entornos internacionales. Mi experiencia abarca desde el desarrollo nativo Android hasta backend con microservicios, pasando por soluciones multiplataforma con Flutter.
+                        </p>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="grid grid-cols-2 gap-x-8 gap-y-5">
+                            <div class="border-l border-[#333333] pl-4">
+                                <p class="text-[10px] tracking-widest uppercase text-[#777777] mb-1" data-i18n="locationLabel">Ubicación</p>
+                                <p class="text-sm text-[#E0E0E0]" data-i18n="location">Barcelona</p>
+                            </div>
+                            <div class="border-l border-[#333333] pl-4">
+                                <p class="text-[10px] tracking-widest uppercase text-[#777777] mb-1" data-i18n="educationLabel">Formación</p>
+                                <p class="text-sm text-[#E0E0E0]" data-i18n="education">DAM</p>
+                            </div>
+                            <div class="border-l border-[#333333] pl-4">
+                                <p class="text-[10px] tracking-widest uppercase text-[#777777] mb-1" data-i18n="phoneLabel">Teléfono</p>
+                                <p class="text-sm text-[#E0E0E0]">633 48 58 38</p>
+                            </div>
+                            <div class="border-l border-[#333333] pl-4">
+                                <p class="text-[10px] tracking-widest uppercase text-[#777777] mb-1" data-i18n="emailLabel">Email</p>
+                                <p class="text-xs text-[#E0E0E0] whitespace-nowrap overflow-hidden text-ellipsis"><a href="mailto:antonio.lafuente@outlook.com" class="hover:text-[#CCFF00] transition-colors">antonio.lafuente@outlook.com</a></p>
+                            </div>
+                        </div>
+                        <div class="border-l border-[#CCFF00] pl-4">
+                            <p class="text-[10px] tracking-widest uppercase text-[#CCFF00] mb-1" data-i18n="languagesLabel">Idiomas</p>
+                            <p class="text-sm text-[#E0E0E0]" data-i18n="languages">Español y Catalán (nativo) · Alemán B2 · Inglés B1</p>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center gap-2 bg-[#CCFF00] text-black text-xs font-bold tracking-widest uppercase px-8 py-4 hover:bg-transparent hover:text-[#CCFF00] border border-[#CCFF00] transition-all duration-300">
+                            <span data-i18n="talkBtn">Hablemos</span>
+                            <iconify-icon icon="lucide:arrow-right" width="14"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-6 md:px-12"><div class="stripe-bar"></div></div>
+
+    <!-- SKILLS -->
+    <section id="skills" class="relative py-24 md:py-32">
+        <div class="max-w-4xl mx-auto px-6 md:px-12">
+            <div class="fade-in">
+                <p class="text-xs tracking-widest uppercase text-[#999999] mb-8 flex items-center gap-3">
+                    <iconify-icon icon="lucide:cpu" width="14"></iconify-icon>
+                    <span data-i18n="skillsLabel">Stack técnico</span>
+                </p>
+                <h2 class="font-display font-bold text-3xl md:text-5xl tracking-tighter uppercase mb-16">
+                    <span data-i18n="skillsTitle">Herramientas que domino.</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#333333] fade-in">
+                <div class="bg-[#080808] p-8 group hover:bg-[#111111] transition-colors duration-500 hover-glow">
+                    <div class="flex items-center gap-3 mb-6">
+                        <iconify-icon icon="logos:kotlin-icon" width="28"></iconify-icon>
+                        <h3 class="font-display font-bold text-lg uppercase">Kotlin</h3>
+                    </div>
+                    <p class="text-xs text-[#BBBBBB] leading-relaxed mb-6">
+                        <span data-i18n="kotlinDesc">Android nativo con Jetpack Compose, Coroutines, State Flow.</span><br><span data-i18n="kotlinDesc2">Arquitectura MVVM, Clean Architecture y Firebase Realtime Database.</span>
+                    </p>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-[10px] tracking-widest uppercase mb-1">
+                                <span class="text-[#999999]">Android Nativo</span>
+                            </div>
+                            <div class="h-[2px] bg-[#222222] overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-[#CCFF00]" style="width: 0%" data-width="92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] tracking-widest uppercase mb-1">
+                                <span class="text-[#999999]">Jetpack Compose</span>
+                            </div>
+                            <div class="h-[2px] bg-[#222222] overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-[#CCFF00]" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#080808] p-8 group hover:bg-[#111111] transition-colors duration-500 hover-glow">
+                    <div class="flex items-center gap-3 mb-6">
+                        <iconify-icon icon="logos:flutter" width="28"></iconify-icon>
+                        <h3 class="font-display font-bold text-lg uppercase">Flutter</h3>
+                    </div>
+                    <p class="text-xs text-[#BBBBBB] leading-relaxed mb-6" data-i18n="flutterDesc">
+                        Apps multiplataforma iOS/Android. State management con BLoC/Cubit y Riverpod. Clean Architecture, fpdart, Drift/SQLite.
+                    </p>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-[10px] tracking-widest uppercase mb-1">
+                                <span class="text-[#999999]">Multiplataforma</span>
+                            </div>
+                            <div class="h-[2px] bg-[#222222] overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-[#CCFF00]" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] tracking-widest uppercase mb-1">
+                                <span class="text-[#999999]">Dart / BLoC</span>
+                            </div>
+                            <div class="h-[2px] bg-[#222222] overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-[#CCFF00]" style="width: 0%" data-width="88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#080808] p-8 group hover:bg-[#111111] transition-colors duration-500 hover-glow">
+                    <div class="flex items-center gap-3 mb-6">
+                        <iconify-icon icon="logos:java" width="28"></iconify-icon>
+                        <h3 class="font-display font-bold text-lg uppercase">Java</h3>
+                    </div>
+                    <p class="text-xs text-[#BBBBBB] leading-relaxed mb-6">
+                        <span data-i18n="javaDesc">Spring Boot 3, Hibernate/JPA, Spring Cloud (microservicios).</span><br><span data-i18n="javaDesc2">Spring WebFlux. TDD con JUnit 5 y Mockito.</span>
+                    </p>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-[10px] tracking-widest uppercase mb-1">
+                                <span class="text-[#999999]">Spring Boot</span>
+                            </div>
+                            <div class="h-[2px] bg-[#222222] overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-[#CCFF00]" style="width: 0%" data-width="88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] tracking-widest uppercase mb-1">
+                                <span class="text-[#999999]">Microservicios</span>
+                            </div>
+                            <div class="h-[2px] bg-[#222222] overflow-hidden">
+                                <div class="skill-bar-fill h-full bg-[#CCFF00]" style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-px bg-[#333333] fade-in">
+                <div class="bg-[#080808] p-4 text-center hover:bg-[#111111] transition-colors">
+                    <p class="text-[10px] tracking-widest uppercase text-[#999999]">Git / GitHub</p>
+                </div>
+                <div class="bg-[#080808] p-4 text-center hover:bg-[#111111] transition-colors">
+                    <p class="text-[10px] tracking-widest uppercase text-[#999999]">Docker</p>
+                </div>
+                <div class="bg-[#080808] p-4 text-center hover:bg-[#111111] transition-colors">
+                    <p class="text-[10px] tracking-widest uppercase text-[#999999]">PostgreSQL</p>
+                </div>
+                <div class="bg-[#080808] p-4 text-center hover:bg-[#111111] transition-colors">
+                    <p class="text-[10px] tracking-widest uppercase text-[#999999]">Firebase</p>
+                </div>
+                <div class="bg-[#080808] p-4 text-center hover:bg-[#111111] transition-colors">
+                    <p class="text-[10px] tracking-widest uppercase text-[#999999]">REST APIs</p>
+                </div>
+                <div class="bg-[#080808] p-4 text-center hover:bg-[#111111] transition-colors">
+                    <p class="text-[10px] tracking-widest uppercase text-[#999999]">JWT Auth</p>
+                </div>
+                <div class="bg-[#080808] p-4 text-center hover:bg-[#111111] transition-colors">
+                    <p class="text-[10px] tracking-widest uppercase text-[#999999]">Node.js</p>
+                </div>
+                <div class="bg-[#080808] p-4 text-center hover:bg-[#111111] transition-colors">
+                    <p class="text-[10px] tracking-widest uppercase text-[#999999]">Supabase</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-6 md:px-12"><div class="stripe-bar"></div></div>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="relative py-24 md:py-32">
+        <div class="max-w-4xl mx-auto px-6 md:px-12">
+            <div class="fade-in">
+                <p class="text-xs tracking-widest uppercase text-[#999999] mb-8 flex items-center gap-3">
+                    <iconify-icon icon="lucide:folder" width="14"></iconify-icon>
+                    <span data-i18n="projectsLabel">Proyectos</span>
+                </p>
+                <h2 class="font-display font-bold text-3xl md:text-5xl tracking-tighter uppercase mb-16">
+                    <span data-i18n="projectsTitle">Trabajo reciente.</span>
+                </h2>
+            </div>
+
+            <!-- Psicaid -->
+            <div class="project-card fade-in border-b border-[#333333] py-8 md:py-12 group">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-5 overflow-hidden">
+                        <div class="project-img w-full aspect-[16/10] flex items-center justify-center" style="background: linear-gradient(135deg, #0d150d 0%, #0a1a10 100%); border: 1px solid #1a2a1a;">
+                            <div style="text-align:center; opacity:0.5;">
+                                <div style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:#CCFF00; letter-spacing:-0.02em;">PSICAID</div>
+                                <div style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:#BBBBBB; letter-spacing:0.2em; margin-top:0.4rem;">HEALTHTECH · B2B SAAS</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 md:pl-8">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-[10px] tracking-widest uppercase text-[#CCFF00] border border-[#CCFF00] px-2 py-0.5">Flutter</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#CCFF00] border border-[#CCFF00] px-2 py-0.5">Java / Spring Boot</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#CCFF00] border border-[#CCFF00] px-2 py-0.5" data-i18n="psicaidFeatured">Destacado</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl md:text-2xl uppercase mb-3 group-hover:text-white transition-colors">
+                            <span data-i18n="psicaidTitle">Psicaid — SaaS HealthTech</span>
+                        </h3>
+                        <p class="text-sm text-[#BBBBBB] leading-relaxed mb-4" data-i18n="psicaidDesc">
+                            Plataforma B2B completa para psicólogos. Lideré el desarrollo full-stack: experiencia mobile en Flutter con Riverpod (invalidación reactiva de datos, interfaz para resúmenes clínicos generados por LLMs, modo oscuro, layouts tablet) y backend en Java 17/Spring Boot 3 (APIs RESTful, JWT multi-tenant, integración con microservicio Python/FastAPI para IA, trazabilidad RGPD). Despliegue en Render.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Riverpod</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Spring Boot 3</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">JWT</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">PostgreSQL</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">FastAPI</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Docker</span>
+                        </div>
+                        <a href="https://github.com/ALaLodev/psicaid-flutter-java" target="_blank" class="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-[#E0E0E0] hover:text-[#CCFF00] transition-colors duration-300">
+                            <span data-i18n="psicaidVer">Ver proyecto</span>
+                            <iconify-icon icon="lucide:arrow-right" width="14" class="project-arrow"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task Flow -->
+            <div class="project-card fade-in border-b border-[#333333] py-8 md:py-12 group">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-5 overflow-hidden">
+                        <div class="project-img w-full aspect-[16/10] flex items-center justify-center" style="background: linear-gradient(135deg, #0d0d1a 0%, #0a0a1f 100%); border: 1px solid #1a1a2a;">
+                            <div style="text-align:center; opacity:0.5;">
+                                <div style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:#CCFF00; letter-spacing:-0.02em;">TASK FLOW</div>
+                                <div style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:#BBBBBB; letter-spacing:0.2em; margin-top:0.4rem;">FLUTTER · NODE.JS · FULLSTACK</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 md:pl-8">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-[10px] tracking-widest uppercase text-[#CCFF00] border border-[#CCFF00] px-2 py-0.5">Flutter</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#CCFF00] border border-[#CCFF00] px-2 py-0.5">Node.js</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#999999]" data-i18n="taskflowFullStack">Full Stack</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl md:text-2xl uppercase mb-3 group-hover:text-white transition-colors">
+                            <span data-i18n="taskflowTitle">Task Flow</span>
+                        </h3>
+                        <p class="text-sm text-[#BBBBBB] leading-relaxed mb-4" data-i18n="taskflowDesc">
+                            Sistema Full Stack completo con backend en Node.js/Express y frontend en Flutter. Backend construido con TypeScript, Prisma ORM y PostgreSQL, contenedorizado con Docker. Autenticación JWT y sincronización CRUD en tiempo real. Clean Architecture y programación funcional (fpdart) para manejo robusto de errores.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Dart</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">TypeScript</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Prisma ORM</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Docker</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">PostgreSQL</span>
+                        </div>
+                        <a href="https://github.com/ALaLodev/Task-App-Flutter-Node-Postgres-" target="_blank" class="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-[#E0E0E0] hover:text-[#CCFF00] transition-colors duration-300">
+                            <span data-i18n="taskflowVer">Ver proyecto</span>
+                            <iconify-icon icon="lucide:arrow-right" width="14" class="project-arrow"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Penny Track -->
+            <div class="project-card fade-in border-b border-[#333333] py-8 md:py-12 group">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-5 overflow-hidden">
+                        <div class="project-img w-full aspect-[16/10] flex items-center justify-center" style="background: linear-gradient(135deg, #150d0a 0%, #1a0f0a 100%); border: 1px solid #2a1a0d;">
+                            <div style="text-align:center; opacity:0.5;">
+                                <div style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:#CCFF00; letter-spacing:-0.02em;">PENNY TRACK</div>
+                                <div style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:#BBBBBB; letter-spacing:0.2em; margin-top:0.4rem;">FLUTTER · FINTECH · MOBILE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 md:pl-8">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-[10px] tracking-widest uppercase text-[#CCFF00] border border-[#CCFF00] px-2 py-0.5">Flutter</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#999999]" data-i18n="pennyMobile">Mobile</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl md:text-2xl uppercase mb-3 group-hover:text-white transition-colors">
+                            <span data-i18n="pennyTitle">Penny Track</span>
+                        </h3>
+                        <p class="text-sm text-[#BBBBBB] leading-relaxed mb-4" data-i18n="pennyDesc">
+                            Aplicación de gestión financiera escalable implementando Clean Architecture y el patrón BLoC/Cubit. Sincronización híbrida con persistencia local (Drift/SQLite) y Firebase Auth, garantizando el aislamiento de datos multiusuario. Más de 5 pantallas interactivas con gráficos avanzados de visualización.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">BLoC / Cubit</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Drift / SQLite</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Firebase Auth</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Charts</span>
+                        </div>
+                        <a href="https://github.com/ALaLodev/penny_track" target="_blank" class="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-[#E0E0E0] hover:text-[#CCFF00] transition-colors duration-300">
+                            <span data-i18n="pennyVer">Ver proyecto</span>
+                            <iconify-icon icon="lucide:arrow-right" width="14" class="project-arrow"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tic Tac Toe -->
+            <div class="project-card fade-in py-8 md:py-12 group">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-5 overflow-hidden">
+                        <div class="project-img w-full aspect-[16/10] flex items-center justify-center" style="background: linear-gradient(135deg, #0a0a0a 0%, #141414 100%); border: 1px solid #222;">
+                            <div style="text-align:center; opacity:0.5;">
+                                <div style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:#CCFF00; letter-spacing:-0.02em;">TIC TAC TOE</div>
+                                <div style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:#BBBBBB; letter-spacing:0.2em; margin-top:0.4rem;">KOTLIN · REALTIME MULTIPLAYER</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 md:pl-8">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-[10px] tracking-widest uppercase text-[#CCFF00] border border-[#CCFF00] px-2 py-0.5">Kotlin</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#999999]" data-i18n="ticAndroid">Android Nativo</span>
+                        </div>
+                        <h3 class="font-display font-bold text-xl md:text-2xl uppercase mb-3 group-hover:text-white transition-colors">
+                            <span data-i18n="ticTitle">Tic Tac Toe — Real-Time</span>
+                        </h3>
+                        <p class="text-sm text-[#BBBBBB] leading-relaxed mb-4" data-i18n="ticDesc">
+                            Juego multijugador en tiempo real con latencia inferior a un segundo mediante Firebase Realtime Database. Interfaz 100% nativa con Jetpack Compose para una experiencia fluida. Rendimiento optimizado con Kotlin Coroutines y LiveData para gestión de tareas en segundo plano.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Jetpack Compose</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Coroutines</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">LiveData</span>
+                            <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Firebase RTDB</span>
+                        </div>
+                        <a href="https://github.com/ALaLodev/TicTacToe" target="_blank" class="inline-flex items-center gap-2 text-xs tracking-widest uppercase text-[#E0E0E0] hover:text-[#CCFF00] transition-colors duration-300">
+                            <span data-i18n="ticVer">Ver proyecto</span>
+                            <iconify-icon icon="lucide:arrow-right" width="14" class="project-arrow"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-6 md:px-12"><div class="stripe-bar"></div></div>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="relative py-24 md:py-32">
+        <div class="max-w-4xl mx-auto px-6 md:px-12">
+            <div class="fade-in">
+                <p class="text-xs tracking-widest uppercase text-[#999999] mb-8 flex items-center gap-3">
+                    <iconify-icon icon="lucide:briefcase" width="14"></iconify-icon>
+                    <span data-i18n="expLabel">Experiencia profesional</span>
+                </p>
+                <h2 class="font-display font-bold text-3xl md:text-5xl tracking-tighter uppercase mb-16">
+                    <span data-i18n="expTitle">Trayectoria.</span>
+                </h2>
+            </div>
+
+            <div class="space-y-0">
+                <div class="fade-in border-l border-[#333333] pl-8 pb-12 relative">
+                    <div class="absolute left-0 top-0 w-[1px] bg-[#CCFF00]" style="height: 100%;">
+                        <div class="absolute -left-[5px] top-0 w-[11px] h-[11px] bg-[#080808] border-2 border-[#CCFF00] rounded-full"></div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+                        <div>
+                            <h3 class="font-display font-bold text-lg uppercase" data-i18n="exp1Role">Mobile & Backend Developer</h3>
+                            <p class="text-sm text-[#CCFF00]" data-i18n="exp1Company">Psicaid — SaaS HealthTech B2B</p>
+                            <p class="text-[10px] tracking-widest uppercase text-[#999999] mt-1" data-i18n="exp1Location">Valencia, España</p>
+                        </div>
+                        <p class="text-[10px] tracking-widest uppercase text-[#999999] shrink-0" data-i18n="exp1Date">Feb 2026 — Abr 2026</p>
+                    </div>
+                    <ul class="space-y-3 text-sm text-[#BBBBBB] leading-relaxed">
+                        <li class="flex gap-3">
+                            <span class="text-[#444444] mt-0.5 shrink-0">▸</span>
+                            <span><strong class="text-[#E0E0E0] font-normal" data-i18n="exp1Bullet1">Arquitectura Full Stack:</strong> <span data-i18n="exp1Bullet1Desc">Lideré el desarrollo integral de la experiencia mobile (Flutter + Riverpod) y diseñé la API de soporte en Java/Spring Boot.</span></span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-[#444444] mt-0.5 shrink-0">▸</span>
+                            <span><strong class="text-[#E0E0E0] font-normal" data-i18n="exp1Bullet2">Gestión de Estado Avanzada:</strong> <span data-i18n="exp1Bullet2Desc">Implementé arquitectura robusta con Riverpod garantizando reactividad e invalidación eficiente de datos tras creación de sesiones y generación de resúmenes por IA.</span></span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-[#444444] mt-0.5 shrink-0">▸</span>
+                            <span><strong class="text-[#E0E0E0] font-normal" data-i18n="exp1Bullet3">Integración con IA:</strong> <span data-i18n="exp1Bullet3Desc">Comunicación con microservicio Python (FastAPI) para procesamiento de notas clínicas mediante LLMs, con generación dinámica de prompts y filtrado inteligente.</span></span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-[#444444] mt-0.5 shrink-0">▸</span>
+                            <span><strong class="text-[#E0E0E0] font-normal" data-i18n="exp1Bullet4">Seguridad y Multitenancy:</strong> <span data-i18n="exp1Bullet4Desc">JWT con aislamiento estricto de datos multi-tenant. Cumplimiento RGPD con trazabilidad y logs con clasificación de criticidad.</span></span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-[#444444] mt-0.5 shrink-0">▸</span>
+                            <span><strong class="text-[#E0E0E0] font-normal" data-i18n="exp1Bullet5">DevOps:</strong> <span data-i18n="exp1Bullet5Desc">Despliegue en Render, orquestación de arquitectura distribuida y gestión de entornos para alta disponibilidad.</span></span>
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 mt-5">
+                        <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Flutter</span>
+                        <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Riverpod</span>
+                        <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Java 17</span>
+                        <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Spring Boot 3</span>
+                        <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">JWT</span>
+                        <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">PostgreSQL</span>
+                    </div>
+                </div>
+
+                <div class="fade-in border-l border-[#333333] pl-8 relative">
+                    <div class="absolute left-0 top-0 w-[1px] bg-[#333333]" style="height: 100%;">
+                        <div class="absolute -left-[4px] top-0 w-[9px] h-[9px] bg-[#080808] border-2 border-[#777777] rounded-full"></div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+                        <div>
+                            <h3 class="font-display font-bold text-lg uppercase" data-i18n="exp2Role">Junior Software Developer</h3>
+                            <p class="text-sm text-[#E0E0E0]" data-i18n="exp2Company">Pukkas S.L.</p>
+                            <p class="text-[10px] tracking-widest uppercase text-[#999999] mt-1" data-i18n="exp2Location">Barcelona, España</p>
+                        </div>
+                        <p class="text-[10px] tracking-widest uppercase text-[#999999] shrink-0" data-i18n="exp2Date">Mar 2025 — Jun 2025</p>
+                    </div>
+                    <ul class="space-y-3 text-sm text-[#BBBBBB] leading-relaxed">
+                        <li class="flex gap-3">
+                            <span class="text-[#444444] mt-0.5 shrink-0">▸</span>
+                            <span><strong class="text-[#E0E0E0] font-normal" data-i18n="exp2Bullet1">Entrega de Funcionalidades:</strong> <span data-i18n="exp2Bullet1Desc">Desarrollé más de 25 nuevas funcionalidades Frontend y Backend para sitios web corporativos, con 100% de alineación con especificaciones.</span></span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-[#444444] mt-0.5 shrink-0">▸</span>
+                            <span><strong class="text-[#E0E0E0] font-normal" data-i18n="exp2Bullet2">Desarrollo de APIs:</strong> <span data-i18n="exp2Bullet2Desc">Arquitecté e implementé 5 endpoints RESTful con PHP para consumo de datos fluido desde aplicaciones móviles.</span></span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-[#444444] mt-0.5 shrink-0">▸</span>
+                            <span><strong class="text-[#E0E0E0] font-normal" data-i18n="exp2Bullet3">Eficiencia Ágil:</strong> <span data-i18n="exp2Bullet3Desc">12 ciclos completos de Scrum, completando el 100% de tickets de Jira asignados dentro de los plazos.</span></span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-[#444444] mt-0.5 shrink-0">▸</span>
+                            <span><strong class="text-[#E0E0E0] font-normal" data-i18n="exp2Bullet4">Calidad de Código:</strong> <span data-i18n="exp2Bullet4Desc">Revisiones de código por pares y documentación técnica para 6 proyectos corporativos diferentes.</span></span>
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 mt-5">
+                        <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">PHP</span>
+                        <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">REST APIs</span>
+                        <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Scrum</span>
+                        <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Jira</span>
+                        <span class="text-[10px] tracking-widest uppercase text-[#AAAAAA] border border-[#444444] px-2 py-0.5">Code Review</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-6 md:px-12"><div class="stripe-bar"></div></div>
+
+    <!-- EDUCATION -->
+    <section id="education" class="relative py-24 md:py-32">
+        <div class="max-w-4xl mx-auto px-6 md:px-12">
+            <div class="fade-in">
+                <p class="text-xs tracking-widest uppercase text-[#999999] mb-8 flex items-center gap-3">
+                    <iconify-icon icon="lucide:graduation-cap" width="14"></iconify-icon>
+                    <span data-i18n="eduLabel">Formación y certificaciones</span>
+                </p>
+                <h2 class="font-display font-bold text-3xl md:text-5xl tracking-tighter uppercase mb-16">
+                    <span data-i18n="eduTitle">Credenciales.</span>
+                </h2>
+            </div>
+
+            <div class="space-y-px bg-[#333333] fade-in">
+                <div class="cert-card bg-[#080808] p-6 md:p-8">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="inline-block w-1.5 h-1.5 bg-[#CCFF00] rounded-full"></span>
+                                <p class="text-[10px] tracking-widest uppercase text-[#CCFF00]" data-i18n="cert1Type">Certificación</p>
+                            </div>
+                            <h3 class="font-display font-bold text-base md:text-lg uppercase" data-i18n="cert1Title">Certified Agile Digital Product Practitioner™</h3>
+                            <p class="text-xs text-[#999999] mt-1" data-i18n="cert1Org">Igrowker ISA — Delaware, USA</p>
+                        </div>
+                        <p class="text-[10px] tracking-widest uppercase text-[#999999] shrink-0" data-i18n="cert1Date">Marzo 2026</p>
+                    </div>
+                    <p class="text-xs text-[#BBBBBB] leading-relaxed mt-3 pl-4 border-l border-[#222222]" data-i18n="cert1Desc">
+                        75h de entrenamiento práctico. Metodologías ágiles (Scrum/Kanban), equipos multidisciplinarios y desarrollo de productos con IA integrada.
+                    </p>
+                </div>
+
+                <div class="cert-card bg-[#080808] p-6 md:p-8">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="inline-block w-1.5 h-1.5 bg-[#777777] rounded-full"></span>
+                                <p class="text-[10px] tracking-widest uppercase text-[#999999]" data-i18n="cert2Type">Máster</p>
+                            </div>
+                            <h3 class="font-display font-bold text-base md:text-lg uppercase" data-i18n="cert2Title">Java Masterclass — 160h</h3>
+                            <p class="text-xs text-[#999999] mt-1" data-i18n="cert2Org">Udemy</p>
+                        </div>
+                        <p class="text-[10px] tracking-widest uppercase text-[#999999] shrink-0" data-i18n="cert2Date">2026</p>
+                    </div>
+                    <p class="text-xs text-[#BBBBBB] leading-relaxed mt-3 pl-4 border-l border-[#222222]" data-i18n="cert2Desc">
+                        Java 21, Spring Boot 3, Hibernate, microservicios, Spring Cloud y Spring WebFlux.
+                    </p>
+                </div>
+
+                <div class="cert-card bg-[#080808] p-6 md:p-8">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="inline-block w-1.5 h-1.5 bg-[#777777] rounded-full"></span>
+                                <p class="text-[10px] tracking-widest uppercase text-[#999999]" data-i18n="cert3Type">Título Oficial</p>
+                            </div>
+                            <h3 class="font-display font-bold text-base md:text-lg uppercase" data-i18n="cert3Title">Grado Superior DAM</h3>
+                            <p class="text-xs text-[#999999] mt-1" data-i18n="cert3Org">Jesuïtes El Clot — Barcelona</p>
+                        </div>
+                        <p class="text-[10px] tracking-widest uppercase text-[#999999] shrink-0" data-i18n="cert3Date">2025</p>
+                    </div>
+                    <p class="text-xs text-[#BBBBBB] leading-relaxed mt-3 pl-4 border-l border-[#222222]" data-i18n="cert3Desc">
+                        Desarrollo de Aplicaciones Multiplataforma. Android, iOS, bases de datos, programación y diseño de interfaces.
+                    </p>
+                </div>
+
+                <div class="cert-card bg-[#080808] p-6 md:p-8">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="inline-block w-1.5 h-1.5 bg-[#777777] rounded-full"></span>
+                                <p class="text-[10px] tracking-widest uppercase text-[#999999]" data-i18n="cert4Type">Especialización</p>
+                            </div>
+                            <h3 class="font-display font-bold text-base md:text-lg uppercase" data-i18n="cert4Title">Apps Android/iOS con Flutter — 250h</h3>
+                            <p class="text-xs text-[#999999] mt-1" data-i18n="cert4Org">CIFO-La Violeta — Barcelona</p>
+                        </div>
+                        <p class="text-[10px] tracking-widest uppercase text-[#999999] shrink-0" data-i18n="cert4Date">2025</p>
+                    </div>
+                </div>
+
+                <div class="cert-card bg-[#080808] p-6 md:p-8">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="inline-block w-1.5 h-1.5 bg-[#777777] rounded-full"></span>
+                                <p class="text-[10px] tracking-widest uppercase text-[#999999]" data-i18n="cert5Type">Curso</p>
+                            </div>
+                            <h3 class="font-display font-bold text-base md:text-lg uppercase" data-i18n="cert5Title">Kotlin + Jetpack Compose + Firebase — 54h</h3>
+                            <p class="text-xs text-[#999999] mt-1" data-i18n="cert5Org">AppCademy</p>
+                        </div>
+                        <p class="text-[10px] tracking-widest uppercase text-[#999999] shrink-0" data-i18n="cert5Date">2024</p>
+                    </div>
+                </div>
+
+                <div class="cert-card bg-[#080808] p-6 md:p-8">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="inline-block w-1.5 h-1.5 bg-[#777777] rounded-full"></span>
+                                <p class="text-[10px] tracking-widest uppercase text-[#999999]" data-i18n="cert6Type">Oracle Academy</p>
+                            </div>
+                            <h3 class="font-display font-bold text-base md:text-lg uppercase" data-i18n="cert6Title">Diseño y Programación de Bases de Datos</h3>
+                            <p class="text-xs text-[#999999] mt-1" data-i18n="cert6Org">Oracle Academy</p>
+                        </div>
+                        <p class="text-[10px] tracking-widest uppercase text-[#999999] shrink-0" data-i18n="cert6Date">2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-6 md:px-12"><div class="stripe-bar"></div></div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="relative py-24 md:py-32 grid-bg">
+        <div class="max-w-6xl mx-auto px-6 md:px-16">
+            <div class="fade-in">
+                <p class="text-xs tracking-widest uppercase text-[#999999] mb-8 flex items-center gap-3">
+                    <iconify-icon icon="lucide:mail" width="14"></iconify-icon>
+                    <span data-i18n="contactLabel">Contacto</span>
+                </p>
+                <h2 class="font-display font-bold text-3xl md:text-5xl tracking-tighter uppercase mb-4">
+                    <span data-i18n="contactTitle">¿Tienes un proyecto?</span>
+                </h2>
+                <p class="text-sm text-[#BBBBBB] leading-relaxed mb-12 max-w-lg" data-i18n="contactDesc">
+                    Si necesitas una app móvil, un backend robusto con Spring Boot, o una solución full-stack, me encantaría escuchar tu idea.
+                </p>
+            </div>
+
+            <form id="contactForm" class="fade-in space-y-8 max-w-lg">
+                <div class="relative form-input">
+                    <label class="absolute top-0 left-0 text-[10px] tracking-widest uppercase text-[#777777]" data-i18n="nameLabel">Nombre</label>
+                    <input type="text" name="name" required
+                        class="w-full bg-transparent border-b border-[#333333] pt-6 pb-3 text-sm text-[#E0E0E0] outline-none focus:border-[#CCFF00] transition-colors duration-300"
+                        data-i18n-placeholder="namePlaceholder" placeholder="Tu nombre">
+                </div>
+                <div class="relative form-input">
+                    <label class="absolute top-0 left-0 text-[10px] tracking-widest uppercase text-[#777777]" data-i18n="emailLabel">Email</label>
+                    <input type="email" name="email" required
+                        class="w-full bg-transparent border-b border-[#333333] pt-6 pb-3 text-sm text-[#E0E0E0] outline-none focus:border-[#CCFF00] transition-colors duration-300"
+                        data-i18n-placeholder="emailPlaceholder" placeholder="tu@email.com">
+                </div>
+                <div class="relative form-input">
+                    <label class="absolute top-0 left-0 text-[10px] tracking-widest uppercase text-[#777777]" data-i18n="messageLabel">Mensaje</label>
+                    <textarea name="message" rows="4" required
+                        class="w-full bg-transparent border-b border-[#333333] pt-6 pb-3 text-sm text-[#E0E0E0] outline-none focus:border-[#CCFF00] transition-colors duration-300 resize-none"
+                        data-i18n-placeholder="messagePlaceholder" placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                </div>
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                    <button type="submit"
+                        class="relative overflow-hidden bg-[#CCFF00] text-black text-xs font-bold tracking-widest uppercase px-8 py-4 hover:bg-transparent hover:text-[#CCFF00] border border-[#CCFF00] transition-all duration-300">
+                        <span data-i18n="sendBtn">Enviar mensaje</span>
+                    </button>
+                    <p class="text-[10px] tracking-widest uppercase text-[#555555]">
+                        <iconify-icon icon="lucide:shield-check" width="12" class="mr-1"></iconify-icon>
+                        <span data-i18n="secure">Tu info está segura</span>
+                    </p>
+                </div>
+            </form>
+
+            <div class="mt-16 pt-12 border-t border-[#333333] fade-in">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                    <a href="mailto:antonio.lafuente@outlook.com" class="group min-w-0">
+                        <p class="text-[10px] tracking-widest uppercase text-[#777777] mb-2" data-i18n="emailLabel">Email</p>
+                        <p class="text-xs text-[#E0E0E0] group-hover:text-[#CCFF00] transition-colors whitespace-nowrap overflow-hidden text-ellipsis">antonio.lafuente@outlook.com</p>
+                    </a>
+                    <a href="tel:+34633485838" class="group min-w-0">
+                        <p class="text-[10px] tracking-widest uppercase text-[#777777] mb-2" data-i18n="phoneLabel">Teléfono</p>
+                        <p class="text-xs text-[#E0E0E0] group-hover:text-[#CCFF00] transition-colors whitespace-nowrap">+34 633 48 58 38</p>
+                    </a>
+                    <a href="https://www.linkedin.com/in/antonio-lafuente/" target="_blank" class="group min-w-0">
+                        <p class="text-[10px] tracking-widest uppercase text-[#777777] mb-2">LinkedIn</p>
+                        <p class="text-xs text-[#E0E0E0] group-hover:text-[#CCFF00] transition-colors whitespace-nowrap overflow-hidden text-ellipsis">linkedin.com/in/antonio-lafuente/</p>
+                    </a>
+                    <a href="https://github.com/ALaLodev" target="_blank" class="group min-w-0">
+                        <p class="text-[10px] tracking-widest uppercase text-[#777777] mb-2">GitHub</p>
+                        <p class="text-xs text-[#E0E0E0] group-hover:text-[#CCFF00] transition-colors whitespace-nowrap">github.com/ALaLodev</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-[#333333] py-8 px-6 md:px-12">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-[10px] tracking-widest uppercase text-[#555555]" data-i18n="footerCopy">
+                © 2026 Antonio Lafuente. Todos los derechos reservados.
+            </p>
+            <p class="text-[10px] tracking-widest uppercase text-[#444444]" data-i18n="footerMade">
+                Hecho con <span class="text-[#CCFF00]">Kotlin</span> y mucho <span class="text-[#CCFF00]">Spring Boot</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- TOAST -->
+    <div id="toast" class="toast fixed bottom-6 right-6 z-50 bg-[#111111] border border-[#CCFF00] px-6 py-4 flex items-center gap-3">
+        <iconify-icon icon="lucide:check-circle" width="18" class="text-[#CCFF00]"></iconify-icon>
+        <span class="text-sm text-[#E0E0E0]" data-i18n="toastMsg">Mensaje enviado correctamente</span>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
