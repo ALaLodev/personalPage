@@ -60,6 +60,133 @@ contactForm.addEventListener('submit', (e) => {
     }, 4000);
 });
 
+// Video Modal
+const videoModal = document.getElementById('videoModal');
+const projectVideo = document.getElementById('projectVideo');
+const closeVideoBtn = document.getElementById('closeVideoBtn');
+const videoBtns = document.querySelectorAll('.open-video-btn');
+
+if (videoModal && projectVideo && closeVideoBtn) {
+    videoBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const videoSrc = btn.getAttribute('data-video');
+            if (videoSrc) {
+                projectVideo.src = videoSrc;
+                videoModal.classList.remove('hidden');
+                setTimeout(() => {
+                    videoModal.classList.remove('opacity-0');
+                }, 10);
+                projectVideo.play().catch(err => console.log('Autoplay prevented:', err));
+            }
+        });
+    });
+
+    const closeModal = () => {
+        videoModal.classList.add('opacity-0');
+        setTimeout(() => {
+            videoModal.classList.add('hidden');
+            projectVideo.pause();
+            projectVideo.src = '';
+        }, 300);
+    };
+
+    closeVideoBtn.addEventListener('click', closeModal);
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+            closeModal();
+        }
+    });
+}
+
+// Image Gallery Modal
+const imageModal = document.getElementById('imageModal');
+const projectImage = document.getElementById('projectImage');
+const closeImageBtn = document.getElementById('closeImageBtn');
+const prevImageBtn = document.getElementById('prevImageBtn');
+const nextImageBtn = document.getElementById('nextImageBtn');
+const imageCounter = document.getElementById('imageCounter');
+const galleryBtns = document.querySelectorAll('.open-gallery-btn');
+
+let currentGalleryImages = [];
+let currentImageIndex = 0;
+
+if (imageModal && projectImage && closeImageBtn) {
+    galleryBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const galleryData = btn.getAttribute('data-gallery');
+            if (galleryData) {
+                const [folder, countStr] = galleryData.split(',');
+                const count = parseInt(countStr, 10);
+                
+                currentGalleryImages = Array.from({ length: count }, (_, i) => 
+                    `screenshots/${folder}/Screenshot_${String(i + 1).padStart(2, '0')}.png`
+                );
+                currentImageIndex = 0;
+                
+                updateGalleryImage();
+                
+                imageModal.classList.remove('hidden');
+                setTimeout(() => {
+                    imageModal.classList.remove('opacity-0');
+                }, 10);
+            }
+        });
+    });
+
+    const updateGalleryImage = () => {
+        if (currentGalleryImages.length === 0) return;
+        
+        projectImage.style.opacity = '0';
+        setTimeout(() => {
+            projectImage.src = currentGalleryImages[currentImageIndex];
+            imageCounter.textContent = `${currentImageIndex + 1} / ${currentGalleryImages.length}`;
+            projectImage.style.opacity = '1';
+        }, 150);
+    };
+
+    const nextImage = (e) => {
+        if(e) e.stopPropagation();
+        currentImageIndex = (currentImageIndex + 1) % currentGalleryImages.length;
+        updateGalleryImage();
+    };
+
+    const prevImage = (e) => {
+        if(e) e.stopPropagation();
+        currentImageIndex = (currentImageIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+        updateGalleryImage();
+    };
+
+    nextImageBtn.addEventListener('click', nextImage);
+    prevImageBtn.addEventListener('click', prevImage);
+
+    const closeImageGallery = () => {
+        imageModal.classList.add('opacity-0');
+        setTimeout(() => {
+            imageModal.classList.add('hidden');
+            currentGalleryImages = [];
+            projectImage.src = '';
+        }, 300);
+    };
+
+    closeImageBtn.addEventListener('click', closeImageGallery);
+    imageModal.addEventListener('click', (e) => {
+        if (e.target === imageModal) {
+            closeImageGallery();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!imageModal.classList.contains('hidden')) {
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'Escape') closeImageGallery();
+        }
+    });
+}
+
+
 // Language toggle
 let currentLang = 'es';
 
@@ -72,7 +199,7 @@ const translations = {
     navContact: { es: 'Contacto', en: 'Contact' },
     heroSubtitle: { es: 'Software Developer', en: 'Software Developer' },
     heroAvailable: { es: 'Disponible para proyectos', en: 'Available for projects' },
-    heroDesc1: { es: 'Especializado en Kotlin, Flutter y Java Spring Boot.', en: 'Specialized in Kotlin, Flutter and Java Spring Boot.' },
+    heroDesc1: { es: 'Especializado en Kotlin, Flutter y Java.', en: 'Specialized in Kotlin, Flutter and Java.' },
     heroDesc2: { es: 'Creo aplicaciones escalables con Clean Architecture, MVVM y TDD.', en: 'I build scalable apps with Clean Architecture, MVVM and TDD.' },
     scroll: { es: 'Scroll', en: 'Scroll' },
     aboutLabel: { es: 'Sobre mí', en: 'About' },
@@ -86,7 +213,8 @@ const translations = {
     phoneLabel: { es: 'Teléfono', en: 'Phone' },
     emailLabel: { es: 'Email', en: 'Email' },
     languagesLabel: { es: 'Idiomas', en: 'Languages' },
-    languages: { es: 'Español y Catalán (nativo) · Alemán B2 · Inglés B1', en: 'Spanish and Catalan (native) · German B2 · English B1' },
+    languages1: { es: 'Español y Catalán (nativo)', en: 'Spanish and Catalan (native)' },
+    languages2: { es: 'Alemán B2 · Inglés B1', en: 'German B2 · English B1' },
     talkBtn: { es: 'Hablemos', en: "Let's talk" },
     skillsLabel: { es: 'Stack técnico', en: 'Tech stack' },
     skillsTitle: { es: 'Herramientas que domino.', en: 'Tools I master.' },
@@ -106,9 +234,15 @@ const translations = {
     pennyTitle: { es: 'Penny Track', en: 'Penny Track' },
     pennyDesc: { es: 'Aplicación de gestión financiera escalable implementando Clean Architecture y el patrón BLoC/Cubit. Sincronización híbrida con persistencia local (Drift/SQLite) y Firebase Auth, garantizando el aislamiento de datos multiusuario. Más de 5 pantallas interactivas con gráficos avanzados de visualización.', en: 'Scalable financial management app implementing Clean Architecture and BLoC/Cubit pattern. Hybrid synchronization with local persistence (Drift/SQLite) and Firebase Auth, ensuring multi-user data isolation. Over 5 interactive screens with advanced visualization charts.' },
     pennyVer: { es: 'Ver proyecto', en: 'View project' },
-    ticTitle: { es: 'Tic Tac Toe — Real-Time', en: 'Tic Tac Toe — Real-Time' },
-    ticDesc: { es: 'Juego multijugador en tiempo real con latencia inferior a un segundo mediante Firebase Realtime Database. Interfaz 100% nativa con Jetpack Compose para una experiencia fluida. Rendimiento optimizado con Kotlin Coroutines y LiveData para gestión de tareas en segundo plano.', en: 'Real-time multiplayer game with sub-second latency using Firebase Realtime Database. 100% native interface with Jetpack Compose for a smooth experience. Optimized performance with Kotlin Coroutines and LiveData for background task management.' },
-    ticVer: { es: 'Ver proyecto', en: 'View project' },
+    chatAndroid: { es: 'Android Nativo', en: 'Native Android' },
+    chatTitle: { es: 'ChatApp — Mensajería', en: 'ChatApp — Messaging' },
+    chatDesc: { es: 'Aplicación de chat moderna para Android con mensajería instantánea fluida. Diseño limpio, arquitectura sólida y tecnologías modernas para una experiencia de comunicación confiable.', en: 'Modern Android chat application with smooth instant messaging. Clean design, solid architecture, and modern technologies for a reliable communication experience.' },
+    guessAndroid: { es: 'Android Nativo', en: 'Native Android' },
+    guessTitle: { es: 'Guess Wars — Cartas', en: 'Guess Wars — Cards' },
+    guessDesc: { es: 'Juego de cartas multijugador para Android con pistas dinámicas, música de fondo adaptativa, notificaciones push, captura de pantalla, autenticación Firebase, clasificación global e interfaz multilingüe.', en: 'Multiplayer card game for Android with dynamic clues, adaptive background music, push notifications, screen capture, Firebase authentication, global leaderboard, and multilingual interface.' },
+    horosAndroid: { es: 'Android Nativo', en: 'Native Android' },
+    horosTitle: { es: 'HoroscoApp — Astrología', en: 'HoroscoApp — Astrology' },
+    horosDesc: { es: 'App nativa de horóscopo con predicciones diarias, caché offline, MVVM con Dagger/Hilt, Retrofit, Room, Coroutines, StateFlow y tests completos (JUnit, Mockito, Espresso).', en: 'Native horoscope app with daily predictions, offline cache, MVVM with Dagger/Hilt, Retrofit, Room, Coroutines, StateFlow, and full tests (JUnit, Mockito, Espresso).' },
     expLabel: { es: 'Experiencia profesional', en: 'Professional experience' },
     expTitle: { es: 'Trayectoria.', en: 'Career path.' },
     exp1Role: { es: 'Mobile & Backend Developer', en: 'Mobile & Backend Developer' },
@@ -143,6 +277,7 @@ const translations = {
     cert1Title: { es: 'Certified Agile Digital Product Practitioner™', en: 'Certified Agile Digital Product Practitioner™' },
     cert1Org: { es: 'Igrowker ISA — Delaware, USA', en: 'Igrowker ISA — Delaware, USA' },
     cert1Date: { es: 'Marzo 2026', en: 'March 2026' },
+    certVer: { es: 'Ver certificado', en: 'View certificate' },
     cert1Desc: { es: '75h de entrenamiento práctico. Metodologías ágiles (Scrum/Kanban), equipos multidisciplinarios y desarrollo de productos con IA integrada.', en: '75h of practical training. Agile methodologies (Scrum/Kanban), multidisciplinary teams and product development with integrated AI.' },
     cert2Type: { es: 'Máster', en: 'Master' },
     cert2Title: { es: 'Java Masterclass — 160h', en: 'Java Masterclass — 160h' },
