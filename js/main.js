@@ -257,7 +257,7 @@ const translations = {
     exp1Role: { es: 'Mobile & Backend Developer', en: 'Mobile & Backend Developer' },
     exp1Company: { es: 'Psicaid — SaaS HealthTech B2B', en: 'Psicaid — HealthTech SaaS B2B' },
     exp1Location: { es: 'Valencia, España', en: 'Valencia, Spain' },
-    exp1Date: { es: 'Feb 2026 — Abr 2026', en: 'Feb 2026 — Apr 2026' },
+    exp1Date: { es: 'Feb 2026 — Actualmente', en: 'Feb 2026 — Currently' },
     exp1Bullet1: { es: 'Arquitectura Full Stack:', en: 'Full Stack Architecture:' },
     exp1Bullet1Desc: { es: 'Lideré el desarrollo integral de la experiencia mobile (Flutter + Riverpod) y diseñé la API de soporte en Java/Spring Boot.', en: 'Led the integral development of the mobile experience (Flutter + Riverpod) and designed the support API in Java/Spring Boot.' },
     exp1Bullet2: { es: 'Gestión de Estado Avanzada:', en: 'Advanced State Management:' },
